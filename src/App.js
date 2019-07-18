@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header'
+import SmashData from './SmashData'
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Smash Bros For Life</h1>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      favoriteArr: []
+    }
+  }
+  render (){
+
+    return (
+      <div className="App">
+        <Header />
+      </div>
+    );
+  }
 }
 
 export default App;

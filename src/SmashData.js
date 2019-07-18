@@ -3,13 +3,13 @@ const SmashData = [
         id: 1,
         name: 'Mario',
         difficulty: 'Beginner',
-        image: ''
+        image: 'https://www.smashbros.com/wiiu-3ds/sp/images/character/mario/main.png'
     },
     {
         id: 2,
         name: 'Samus',
         difficulty: 'Beginner',
-        image: ''
+        image: 'https://www.ssbwiki.com/images/thumb/0/03/Samus_SSBU.png/250px-Samus_SSBU.png'
     },
     {
         id: 3,
@@ -75,7 +75,7 @@ const SmashData = [
         id: 13,
         name: 'Zero-Suit Smaus',
         difficulty: 'Intermediate',
-        image: ''
+        image: 'https://www.smashbros.com/wiiu-3ds/sp/images/character/zerosuit_samus/main.png'
     },
     {
         id: 14,
@@ -90,3 +90,4 @@ const SmashData = [
         image:''
     }
 ]
+export default SmashData;
