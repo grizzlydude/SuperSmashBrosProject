@@ -9,15 +9,18 @@ export default class Finder extends Component {
             characterImg:''
         }
     }
+
     // chooseCharacter(){
     //     const character = {
     //         name: this.props.name,
     //         image: this.props.image
     //     }
     // }
+
     render(){
         let character = SmashData.map(key => key)
         let {name, difficulty, image} = character
+        // Display Characters currently not working
         return(
             <div className="allCharacters">
                 <h1>{name}</h1>
