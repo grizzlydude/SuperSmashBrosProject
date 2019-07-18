@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
-import SmashData from './SmashData'
+// import SmashData from './SmashData'
+import Characters from './components/Characters'
+
 
 class App extends Component {
   constructor(){
@@ -16,6 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Characters />
       </div>
     );
   }
