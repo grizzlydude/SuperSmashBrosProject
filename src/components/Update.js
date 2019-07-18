@@ -1,3 +1,3 @@
 import ReactComponent, { Component } from "react";
 
-// This will handle creation of a new character
+// This will handle all update information
