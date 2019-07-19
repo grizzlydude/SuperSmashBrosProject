@@ -8,16 +8,17 @@ export default class Finder extends Component {
 
     }
     render() {
+        // deconstruct SmashData for all characters or the character passed through
         return (
             <div>
                 <h1>
-                    Image   
+                    Image:
                 </h1>
                 <h2>
-                    Name:  
+                    Name: {this.props.characters.name}
                 </h2>
                 <h3>
-                    Difficulty: 
+                    Difficulty: {this.props.characters.difficulty}
                 </h3>
             </div>
         )

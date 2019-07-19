@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import Characters from './Characters'
+// This file will handle Displaying Characters for both
+// Characters.js and Favorites.js
 
-// This will display the characters 
-// there will be a button for update and another for delete
+export default class Favorites extends Component {
+    constructor() {
+        super()
+        this.state = {
+            favArrIndex: 0
+        }
+    }
 
-export default class CharacterDisplay extends Component {
-    render(){
-        return(
-            <div></div>
-        )
+    render() {
+        // pull from selected character from SmashData and display this information
+        let favorites = this.props.character.map(el => {
+            return (
+                // allow Characters.js access to 
+                <Characters characters={el} />
+            )
+        })
     }
 }

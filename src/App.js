@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import SmashData from './SmashData'
-import Characters from './components/Characters'
+import Favorites from './components/Favorites'
+// import CharacterDisplay from './components/CharacterDisplay'
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Characters />
+        <Favorites character={SmashData}/>
       </div>
     );
   }
