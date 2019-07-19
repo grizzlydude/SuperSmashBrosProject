@@ -10,13 +10,25 @@ export default class Favorites extends Component {
         }
     }
 
+    deleteCharacter() {
+        let favoriteArray = this.props.favArr[this.state.favArrIndex]
+        
+    }
+
     render() {
+        let displaycharacter = this.props.character.map(el => {
+            return (
+                // allow Characters.js access to 
+                <Characters displaycharacter={el} />
+            )
+        })
         return (
             <div>
                 <div>
-                    {favorites[this.state.favArrIndex]}
+                    {displaycharacter[this.state.favArrIndex]}
                 </div>
                 <div>
+                    {/* UPdate will require a toggle to function */}
                     <button>Update</button>
                     <button>Delete</button>
                 </div>

@@ -7,17 +7,28 @@ export default class Favorites extends Component {
     constructor() {
         super()
         this.state = {
-            favArrIndex: 0
+            characterArrIndex: 0
         }
     }
 
     render() {
         // pull from selected character from SmashData and display this information
-        let favorites = this.props.character.map(el => {
+        let displaycharacter = this.props.character.map(el => {
             return (
-                // allow Characters.js access to 
-                <Characters characters={el} />
+                // allow Characters.js access to SmashData
+                <Characters displaycharacter={el} />
             )
         })
+        return(
+            <div>
+                {displaycharacter[this.state.characterArrIndex]}
+                {/* Save current character to favorites. Pass into
+                favArray and pass to favorites */}
+                <button>Save to Favorites</button>
+                {/* Allow for a created character to be added by push 
+                to orginal array */}
+                <button>Create</button>
+            </div>
+        )
     }
 }

@@ -15,10 +15,10 @@ export default class Finder extends Component {
                     Image:
                 </h1>
                 <h2>
-                    Name: {this.props.characters.name}
+                    Name: {this.props.displaycharacter.name}
                 </h2>
                 <h3>
-                    Difficulty: {this.props.characters.difficulty}
+                    Difficulty: {this.props.displaycharacter.difficulty}
                 </h3>
             </div>
         )
