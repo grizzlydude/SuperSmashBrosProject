@@ -1,34 +1,25 @@
-import React, { Component } from "react";
-import Characters from './Characters'
-import Create from './Create'
-// This file will handle Displaying Characters for both
-// Characters.js and Favorites.js
+import React, { Component } from 'react'
+import SmashData from '../SmashData'
 
-export default class Favorites extends Component {
+// Display Characters deconstructed Data
+export default class Finder extends Component {
     constructor() {
         super()
-        this.state = {
-            characterArrIndex: 0
-        }
-    }
 
+    }
     render() {
-        // pull from selected character from SmashData and display this information
-        let displaycharacter = this.props.character.map(el => {
-            return (
-                // allow Characters.js access to SmashData
-                <Characters displaycharacter={el} />
-            )
-        })
-        return(
+        // deconstruct SmashData for all characters or the character passed through
+        return (
             <div>
-                {displaycharacter[this.state.characterArrIndex]}
-                {/* Save current character to favorites. Pass into
-                favArray and pass to favorites */}
-                <button onClick = {() => this.props.saveFn}>Save to Favorites</button>
-                {/* Allow for a created character to be added by push 
-                to orginal array */}
-                <button>Create</button>
+                <h1>
+                    Image:
+                </h1>
+                <h2>
+                    Name: {this.props.displaycharacter.name}
+                </h2>
+                <h3>
+                    Difficulty: {this.props.displaycharacter.difficulty}
+                </h3>
             </div>
         )
     }

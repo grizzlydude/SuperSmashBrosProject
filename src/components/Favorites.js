@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Characters from './Characters'
+import CharacterDisplay from './CharacterDisplay'
 // This file will handle placing characters in a Favorites array
 
 export default class Favorites extends Component {
@@ -19,7 +19,7 @@ export default class Favorites extends Component {
         let displaycharacter = this.props.character.map(el => {
             return (
                 // allow Characters.js access to 
-                <Characters displaycharacter={el} />
+                <CharacterDisplay displaycharacter={el} />
             )
         })
         return (
