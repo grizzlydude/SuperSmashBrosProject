@@ -7,19 +7,29 @@ import CharacterDisplay from './components/CharacterDisplay'
 
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super()
 
     this.state = {
       favoriteArr: []
     }
   }
-  render (){
+
+  saveToFavorites(id){
+    SmashData.put(`/api/smashdata/${id}`).then((req, res) => {
+      this.setState({favoriteArr: res.SmashData})
+    })
+    console.log(this.state.favoriteArr)
+  }
+  
+  render() {
     return (
       <div className="App">
         <Header />
-        <CharacterDisplay character={SmashData} />
-        <Favorites character={SmashData}/>
+        <CharacterDisplay
+          character={SmashData} 
+          saveFn={this.state.favoriteArr}  />
+        <Favorites  character={SmashData} />
       </div>
     );
   }

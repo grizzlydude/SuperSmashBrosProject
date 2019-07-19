@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Characters from './Characters'
+import Create from './Create'
 // This file will handle Displaying Characters for both
 // Characters.js and Favorites.js
 
@@ -24,7 +25,7 @@ export default class Favorites extends Component {
                 {displaycharacter[this.state.characterArrIndex]}
                 {/* Save current character to favorites. Pass into
                 favArray and pass to favorites */}
-                <button>Save to Favorites</button>
+                <button onClick = {() => this.props.saveFn}>Save to Favorites</button>
                 {/* Allow for a created character to be added by push 
                 to orginal array */}
                 <button>Create</button>

@@ -12,7 +12,7 @@ export default class Favorites extends Component {
 
     deleteCharacter() {
         let favoriteArray = this.props.favArr[this.state.favArrIndex]
-        
+
     }
 
     render() {
@@ -28,7 +28,7 @@ export default class Favorites extends Component {
                     {displaycharacter[this.state.favArrIndex]}
                 </div>
                 <div>
-                    {/* UPdate will require a toggle to function */}
+                    {/* Update will require a toggle to function */}
                     <button>Update</button>
                     <button>Delete</button>
                 </div>
