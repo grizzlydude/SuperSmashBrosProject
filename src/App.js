@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header'
 import SmashData from './SmashData'
 import Favorites from './components/Favorites'
-// import CharacterDisplay from './components/CharacterDisplay'
 import Characters from './components/Characters'
 
 class App extends Component {

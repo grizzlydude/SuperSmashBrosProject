@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import CharacterDisplay from './CharacterDisplay'
 import Create from './Create'
 import SmashData from '../SmashData'
+import { conditionalExpression } from "@babel/types";
 
 // This file will handle Displaying Characters for both
 // CharacterDisplay.js and Favorites.js
@@ -31,6 +32,10 @@ export default class Favorites extends Component {
         return console.log("Pressed Create Character")
     }
 
+    randomizeCharacters(){
+        return console.log('Pressed Random Character')
+    }
+
     render() {
         // pull from selected character from SmashData and display this information
         let displaycharacter = this.props.character.map(el => {
@@ -50,6 +55,7 @@ export default class Favorites extends Component {
                 {/* Allow for a created character to be added by push 
                 to orginal array */}
                 <button onClick={()=> this.createCharacter()}>Create</button>
+                <button onClick={()=>this.randomizeCharacters()}>Random Character</button>
             </div>
         )
     }

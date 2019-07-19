@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import SmashData from '../SmashData'
 
 // Display Characters deconstructed Data
 export default class Finder extends Component {
@@ -11,10 +10,7 @@ export default class Finder extends Component {
         // deconstruct SmashData for all characters or the character passed through
         return (
             <div>
-                <h1>
-                    Image:
-                </h1>
-                
+                <img src={this.props.displaycharacter.image} />>
                 <h2>
                     Name: {this.props.displaycharacter.name}
                 </h2>

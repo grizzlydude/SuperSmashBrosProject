@@ -11,7 +11,7 @@ export default class Finder extends Component {
     render() {
         return (
             <div>
-                <h4>Search</h4>
+                <input placeholder="Search for Character"></input>
             </div>
         )
     }
