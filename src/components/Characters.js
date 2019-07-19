@@ -19,16 +19,16 @@ export default class Favorites extends Component {
 
     saveToFavorites(id) {
         // let data = SmashData
-        // data.put(`/api/smashdata/${id}`).then((req, res) => {
+        // character.put(`/api/smashdata/${id}`).then((req, res) => {
         //   this.setState({favoriteArr: res.SmashData})
         // })
-        return console.log(this.state.favoriteArr)
+        return console.log('Pressed Saved')
     }
 
     createCharacter() {
-        this.setState({
-        })
-        return console.log(SmashData)
+        // this.setState({
+        // })
+        return console.log("Pressed Create Character")
     }
 
     render() {

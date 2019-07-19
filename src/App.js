@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import SmashData from './SmashData'
-// import Favorites from './components/Favorites'
+import Favorites from './components/Favorites'
 // import CharacterDisplay from './components/CharacterDisplay'
 import Characters from './components/Characters'
 
@@ -27,7 +27,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Characters character={SmashData} />
-        {/* <Favorites  character={SmashData} /> */}
+        <Favorites  character={SmashData} />
            {/* saveFn={this.state.saveToFavorites}  /> */}
       </div>
     );

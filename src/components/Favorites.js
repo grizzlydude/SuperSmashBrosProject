@@ -11,8 +11,12 @@ export default class Favorites extends Component {
     }
 
     deleteCharacter() {
-        let favoriteArray = this.props.favArr[this.state.favArrIndex]
+        // let favoriteArray = this.props.favArr[this.state.favArrIndex]
+        console.log('You pressed delete')
+    }
 
+    updateCharacter() {
+        console.log('You have pressed Update')
     }
 
     render() {
@@ -29,8 +33,8 @@ export default class Favorites extends Component {
                 </div>
                 <div>
                     {/* Update will require a toggle to function */}
-                    <button>Update</button>
-                    <button>Delete</button>
+                    <button onClick={() => this.deleteCharacter()}>Update</button>
+                    <button onClick={() => this.updateCharacter()}>Delete</button>
                 </div>
             </div>
         )

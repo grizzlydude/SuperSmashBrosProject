@@ -14,6 +14,7 @@ export default class Finder extends Component {
                 <h1>
                     Image:
                 </h1>
+                
                 <h2>
                     Name: {this.props.displaycharacter.name}
                 </h2>
