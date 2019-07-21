@@ -2,24 +2,38 @@
 import React, { Component } from "react";
 import CharacterDisplay from './CharacterDisplay'
 import Create from './Create'
-import SmashData from '../SmashData'
-import { conditionalExpression } from "@babel/types";
+import axios from 'axios'
+import Favorites from "./Favorites";
 
 // This file will handle Displaying Characters for both
 // CharacterDisplay.js and Favorites.js
 
-export default class Favorites extends Component {
+export default class Characters extends Component {
     constructor() {
         super()
 
         this.state = {
             characterArrIndex: 0,
-            favoriteArr: []
+            charactersArray: []
         }
+        this.getCharacters()
     }
 
-    saveToFavorites(id) {
-        // let data = SmashData
+    getCharacters() {
+        axios.get('/api/smashdata').then(res => {
+            console.log('This has been called', res.data)
+            this.setState({
+                charactersArray: res.data
+            })
+        })
+    }
+
+    saveToFavorites() {
+        this.state.charactersArray[this.state.characterArrIndex].favorite = true
+        axios.put(`/api/smashdata/${this.state.charactersArray[this.state.characterArrIndex].id}`, this.state.charactersArray[this.state.characterArrIndex])
+            .then(res => {
+                console.log("res.data: ", res.data)
+            })
         // character.put(`/api/smashdata/${id}`).then((req, res) => {
         //   this.setState({favoriteArr: res.SmashData})
         // })
@@ -32,13 +46,13 @@ export default class Favorites extends Component {
         return console.log("Pressed Create Character")
     }
 
-    randomizeCharacters(){
+    randomizeCharacters() {
         return console.log('Pressed Random Character')
     }
 
     render() {
         // pull from selected character from SmashData and display this information
-        let displaycharacter = this.props.character.map(el => {
+        let displaycharacter = this.state.charactersArray.map(el => {
             return (
                 // allow Characters.js access to SmashData
                 <CharacterDisplay displaycharacter={el} />
@@ -54,8 +68,8 @@ export default class Favorites extends Component {
                 {/* <button onClick = {() => this.props.saveFn}>Save to Favorites</button> */}
                 {/* Allow for a created character to be added by push 
                 to orginal array */}
-                <button onClick={()=> this.createCharacter()}>Create</button>
-                <button onClick={()=>this.randomizeCharacters()}>Random Character</button>
+                <button onClick={() => this.createCharacter()}>Create</button>
+                <button onClick={() => this.randomizeCharacters()}>Random Character</button>
             </div>
         )
     }

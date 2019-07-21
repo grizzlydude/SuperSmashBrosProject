@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
-import SmashData from './SmashData'
 import Favorites from './components/Favorites'
 import Characters from './components/Characters'
 
@@ -14,6 +13,7 @@ class App extends Component {
     }
   }
 
+
   // saveToFavorites(id){
   //   SmashData.put(`/api/smashdata/${id}`).then((req, res) => {
   //     this.setState({favoriteArr: res.SmashData})
@@ -25,8 +25,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Characters character={SmashData} />
-        <Favorites  character={SmashData} />
+        <Characters />
+        <Favorites  />
            {/* saveFn={this.state.saveToFavorites}  /> */}
       </div>
     );

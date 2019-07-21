@@ -7,7 +7,7 @@ export default class Header extends Component {
             <div
             ><h1>Smash Bros For Life</h1>
                 <Finder />
-            </div>
+            </div> 
         )
     }
 }

@@ -1,13 +1,25 @@
 import React, { Component } from "react";
 import CharacterDisplay from './CharacterDisplay'
+import Axios from "axios";
 // This file will handle placing characters in a Favorites array
 
 export default class Favorites extends Component {
     constructor() {
         super()
         this.state = {
-            favArrIndex: 0
+            favArrIndex: 0,
+            favArray: []
         }
+        this.getFavorites()
+    }
+
+    getFavorites() {
+        Axios.get('/api/smashdata?favorites=true').then(res => {
+            console.log('this is what your looking for ', res.data)
+            this.setState({
+                favArray: res.data
+            })
+        })
     }
 
     deleteCharacter() {
@@ -20,7 +32,7 @@ export default class Favorites extends Component {
     }
 
     render() {
-        let displaycharacter = this.props.character.map(el => {
+        let displaycharacter = this.state.favArray.map(el => {
             return (
                 // allow Characters.js access to 
                 <CharacterDisplay displaycharacter={el} />
@@ -31,11 +43,13 @@ export default class Favorites extends Component {
                 <div>
                     {displaycharacter[this.state.favArrIndex]}
                 </div>
-                <div>
-                    {/* Update will require a toggle to function */}
-                    <button onClick={() => this.deleteCharacter()}>Update</button>
-                    <button onClick={() => this.updateCharacter()}>Delete</button>
-                </div>
+                {/* Update will require a toggle to function */}
+                {this.state.favArray.length > 0 &&
+                    <div>
+                        <button onClick={() => this.deleteCharacter()}>Update</button>
+                        <button onClick={() => this.updateCharacter()}>Delete</button>
+                    </div>
+                }
             </div>
         )
     }
