@@ -3,6 +3,7 @@ import CharacterDisplay from './CharacterDisplay.js'
 import Characters from './Characters'
 import axios from "axios";
 import CreateUpdate from './CreateUpdate'
+import './CharacterDisplay.css'
 // This file will handle placing characters in a Favorites array
 
 export default class Favorites extends Component {
@@ -56,6 +57,7 @@ export default class Favorites extends Component {
         let displaycharacter = this.state.favArray.map(el => {
             return (
                 // allow Characters.js access to 
+                // displaying all favorites in favArray
                 <CharacterDisplay displaycharacter={el} />
             )
         })
@@ -71,7 +73,9 @@ export default class Favorites extends Component {
                             </div>
                         ) : (
                                 <div>
-                                    {displaycharacter[this.state.favArrIndex]}
+                                    <div className='favoriteDisplay'>
+                                        {displaycharacter}
+                                    </div>
                                     <button onClick={() => this.updateCharacter()}>Update</button>
                                     <button onClick={() => this.deleteCharacter()}>Delete</button>
                                 </div>

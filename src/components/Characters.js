@@ -39,7 +39,7 @@ export default class Characters extends Component {
     }
 
     createCharacter() {
-        this.setState ({
+        this.setState({
             create: true
         })
         return console.log("Pressed Create Character")
@@ -62,6 +62,35 @@ export default class Characters extends Component {
         })
     }
 
+    nextCharacter() {
+        if (this.state.characterArrIndex === this.state.charactersArray.length - 1) {
+            this.setState({
+                characterArrIndex: 0
+            })
+        }
+        else {
+            this.setState({
+                characterArrIndex: this.state.characterArrIndex + 1
+            })
+        }
+        console.log(this.state.charactersArray)
+    }
+
+    previousCharacter() {
+        if (this.state.characterArrIndex === 0) {
+            this.setState({
+                characterArrIndex: this.state.charactersArray.length - 1
+            })
+        }
+        else {
+            this.setState({
+                characterArrIndex: this.state.characterArrIndex - 1
+            })
+        }
+        console.log(this.state.charactersArray)
+    }
+
+
     render() {
         // pull from selected character from SmashData and display this information
         let displaycharacter = this.state.charactersArray.map(el => {
@@ -80,6 +109,7 @@ export default class Characters extends Component {
                 ) : (
                         <div>
                             {displaycharacter[this.state.characterArrIndex]}
+                            <button onClick={() => this.previousCharacter()}>Previous</button>
                             {/* Save current character to favorites. Pass into
             favArray and pass to favorites */}
                             <button onClick={() => this.saveToFavorites()}>Save to Favorites</button>
@@ -88,6 +118,7 @@ export default class Characters extends Component {
             to orginal array */}
                             <button onClick={() => this.createCharacter()}>Create</button>
                             <button onClick={() => this.randomizeCharacters()}>Random Character</button>
+                            <button onClick={() => this.nextCharacter()}>Next</button>
                         </div>
                     )
                 }

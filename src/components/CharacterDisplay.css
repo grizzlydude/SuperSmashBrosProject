@@ -1,15 +1,19 @@
 img {
     display:flex;
     background-size: cover;
-    height: 50vh;
-    width: 50vw;
+    height: 30vh;
+    width: 20vw;
     justify-content: center;
     position: relative;
-    left: 200px
+    /* left: 600px */
 }
 
 .textInfo {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;   
+}
+
+.favoriteDisplay{
+    display: flex;
+    flex-wrap: wrap
 }

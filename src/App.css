@@ -35,10 +35,36 @@
 .header {
   background: firebrick;
   height: 10vh;
-  width: 100vw
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-content: center 
 }
 
 .mainBody{
   background: aquamarine;
   height: 150vh;
+}
+
+.favoritePlace {
+  font-size: 2rem;
+  font:bold;
+  position: relative;
+}
+
+.favorites{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /* flex-direction: column */
+}
+
+.randomCharacter {
+  /* height: 50vh; */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  /* flex-direction: row; */
 }

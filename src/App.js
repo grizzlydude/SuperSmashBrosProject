@@ -28,9 +28,12 @@ class App extends Component {
           <Header />
         </div>
         <div className="mainBody">
-          <Characters />
-          <h1>Favorite</h1>
-          <Favorites />
+          <div className='randomCharacter'>
+            <Characters />
+          </div>
+          <div className='favorites'>
+            <Favorites />
+          </div>
         </div>
       </div>
     );
