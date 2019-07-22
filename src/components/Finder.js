@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Favorites from './Favorites'
 
 // This will handle a search function for finding a character in favorite characters
 export default class Finder extends Component {
@@ -7,11 +6,14 @@ export default class Finder extends Component {
         super()
     }
 
+handleChange(event){
+    
+}
 
     render() {
         return (
             <div>
-                <input placeholder="Search for Character"></input>
+                <input placeholder="Search for Character" onChange={this.handleChange()}></input>
             </div>
         )
     }

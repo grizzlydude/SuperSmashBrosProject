@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import CharacterDisplay from './CharacterDisplay.css'
 // Display Characters deconstructed Data
 export default class Finder extends Component {
     constructor() {
@@ -11,12 +11,14 @@ export default class Finder extends Component {
         return (
             <div>
                 <img src={this.props.displaycharacter.image} />
-                <h2>
-                    Name: {this.props.displaycharacter.name}
-                </h2>
-                <h3>
-                    Difficulty: {this.props.displaycharacter.difficulty}
-                </h3>
+                <div className="textInfo">
+                    <h2>
+                        Name: {this.props.displaycharacter.name}
+                    </h2>
+                    <h3>
+                        Difficulty: {this.props.displaycharacter.difficulty}
+                    </h3>
+                </div>
             </div>
         )
     }

@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  background: firebrick;
+  height: 10vh;
+  width: 100vw
+}
+
+.mainBody{
+  background: aquamarine;
+  height: 150vh;
+}

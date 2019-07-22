@@ -1,0 +1,15 @@
+img {
+    display:flex;
+    background-size: cover;
+    height: 50vh;
+    width: 50vw;
+    justify-content: center;
+    position: relative;
+    left: 200px
+}
+
+.textInfo {
+    display: flex;
+    flex-direction: column;
+    
+}

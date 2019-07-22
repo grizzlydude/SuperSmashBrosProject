@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CharacterDisplay from './CharacterDisplay'
+import CharacterDisplay from './CharacterDisplay.js'
 import Characters from './Characters'
 import axios from "axios";
 import CreateUpdate from './CreateUpdate'

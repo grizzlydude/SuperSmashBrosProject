@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import CharacterDisplay from './CharacterDisplay'
+import CharacterDisplay from './CharacterDisplay.js'
 import CreateUpdate from './CreateUpdate'
 import axios from 'axios'
 import Favorites from "./Favorites";
