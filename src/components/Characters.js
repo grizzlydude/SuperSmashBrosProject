@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import CharacterDisplay from './CharacterDisplay.js'
 import CreateUpdate from './CreateUpdate'
 import axios from 'axios'
-import Favorites from "./Favorites";
 
 // This file will handle Displaying Characters for both
 // CharacterDisplay.js and Favorites.js

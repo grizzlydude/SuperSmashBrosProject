@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CharacterDisplay from './CharacterDisplay.css'
+
 // Display Characters deconstructed Data
 export default class Finder extends Component {
     constructor() {

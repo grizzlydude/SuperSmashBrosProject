@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import CharacterDisplay from './CharacterDisplay.js'
-import Characters from './Characters'
 import axios from "axios";
 import CreateUpdate from './CreateUpdate'
 import './CharacterDisplay.css'
+
 // This file will handle placing characters in a Favorites array
 
 export default class Favorites extends Component {
