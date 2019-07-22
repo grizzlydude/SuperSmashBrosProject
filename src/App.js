@@ -26,8 +26,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Characters />
-        <Favorites  />
-           {/* saveFn={this.state.saveToFavorites}  /> */}
+        <Favorites />
       </div>
     );
   }

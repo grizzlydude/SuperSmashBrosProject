@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import CharacterDisplay from './CharacterDisplay'
-import Create from './Create'
+import CreateUpdate from './CreateUpdate'
 import axios from 'axios'
 import Favorites from "./Favorites";
 
@@ -14,7 +14,8 @@ export default class Characters extends Component {
 
         this.state = {
             characterArrIndex: 0,
-            charactersArray: []
+            charactersArray: [],
+            create: false
         }
         this.getCharacters()
     }
@@ -34,20 +35,31 @@ export default class Characters extends Component {
             .then(res => {
                 console.log("res.data: ", res.data)
             })
-        // character.put(`/api/smashdata/${id}`).then((req, res) => {
-        //   this.setState({favoriteArr: res.SmashData})
-        // })
         return console.log('Pressed Saved')
     }
 
     createCharacter() {
-        // this.setState({
-        // })
+        this.setState ({
+            create: true
+        })
         return console.log("Pressed Create Character")
     }
 
     randomizeCharacters() {
+        const randCharacter = Math.floor(Math.random() * 15)
+        axios.get(`/api/smashdata/${this.state.charactersArray[this.state.characterArrIndex].id}`).then(res => {
+            console.log('res.data ', res.data)
+            this.setState({
+                characterArrIndex: randCharacter
+            })
+        })
         return console.log('Pressed Random Character')
+    }
+
+    cancelCreate() {
+        this.setState({
+            create: false
+        })
     }
 
     render() {
@@ -60,16 +72,25 @@ export default class Characters extends Component {
         })
         return (
             <div>
-                {displaycharacter[this.state.characterArrIndex]}
-                {/* Save current character to favorites. Pass into
-                favArray and pass to favorites */}
-                <button onClick={() => this.saveToFavorites()}>Save to Favorites</button>
+                {this.state.create ? (
+                    <div>
+                        <CreateUpdate />
+                        <button onClick={() => this.cancelCreate()}>Cancel</button>
+                    </div>
+                ) : (
+                        <div>
+                            {displaycharacter[this.state.characterArrIndex]}
+                            {/* Save current character to favorites. Pass into
+            favArray and pass to favorites */}
+                            <button onClick={() => this.saveToFavorites()}>Save to Favorites</button>
 
-                {/* <button onClick = {() => this.props.saveFn}>Save to Favorites</button> */}
-                {/* Allow for a created character to be added by push 
-                to orginal array */}
-                <button onClick={() => this.createCharacter()}>Create</button>
-                <button onClick={() => this.randomizeCharacters()}>Random Character</button>
+                            {/* Allow for a created character to be added by push 
+            to orginal array */}
+                            <button onClick={() => this.createCharacter()}>Create</button>
+                            <button onClick={() => this.randomizeCharacters()}>Random Character</button>
+                        </div>
+                    )
+                }
             </div>
         )
     }

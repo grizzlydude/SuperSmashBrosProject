@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import CharacterDisplay from './CharacterDisplay'
-import Axios from "axios";
+import Characters from './Characters'
+import axios from "axios";
+import CreateUpdate from './CreateUpdate'
 // This file will handle placing characters in a Favorites array
 
 export default class Favorites extends Component {
@@ -8,14 +10,18 @@ export default class Favorites extends Component {
         super()
         this.state = {
             favArrIndex: 0,
-            favArray: []
+            favArray: [],
+            editing: false
         }
-        this.getFavorites()
+        setInterval(() => {
+            this.getFavorites()
+        }, 500);
+        // this.getFavorites()
     }
 
     getFavorites() {
-        Axios.get('/api/smashdata?favorites=true').then(res => {
-            console.log('this is what your looking for ', res.data)
+        axios.get('/api/smashdata?favorites=true').then(res => {
+            // console.log('this is what your looking for ', res.data)
             this.setState({
                 favArray: res.data
             })
@@ -23,12 +29,27 @@ export default class Favorites extends Component {
     }
 
     deleteCharacter() {
-        // let favoriteArray = this.props.favArr[this.state.favArrIndex]
+        this.state.favArray[this.state.favArrIndex].favorite = false
+        axios.put(`/api/smashdata/${this.state.favArray[this.state.favArrIndex].id}`, this.state.favArray[this.state.favArrIndex])
+            .then(res => {
+                console.log('res.data: ', res.data)
+            })
+        console.log(this.state.favArray)
+        console.log('')
         console.log('You pressed delete')
     }
 
     updateCharacter() {
+        this.setState({
+            editing: true
+        })
         console.log('You have pressed Update')
+    }
+
+    cancelUpdate() {
+        this.setState({
+            editing: false
+        })
     }
 
     render() {
@@ -40,14 +61,22 @@ export default class Favorites extends Component {
         })
         return (
             <div>
-                <div>
-                    {displaycharacter[this.state.favArrIndex]}
-                </div>
                 {/* Update will require a toggle to function */}
                 {this.state.favArray.length > 0 &&
                     <div>
-                        <button onClick={() => this.deleteCharacter()}>Update</button>
-                        <button onClick={() => this.updateCharacter()}>Delete</button>
+                        {this.state.editing ? (
+                            <div>
+                                <CreateUpdate character={this.state.favArray[this.state.favArrIndex]} />
+                                <button onClick={() => this.cancelUpdate()}>Cancel</button>
+                            </div>
+                        ) : (
+                                <div>
+                                    {displaycharacter[this.state.favArrIndex]}
+                                    <button onClick={() => this.updateCharacter()}>Update</button>
+                                    <button onClick={() => this.deleteCharacter()}>Delete</button>
+                                </div>
+                            )
+                        }
                     </div>
                 }
             </div>
